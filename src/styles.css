@@ -3,6 +3,10 @@
 @import "tailwindcss/utilities";
 /* You can add global styles to this file, and also import other style files */
 
+body {
+  background-color: rgba(239, 239, 239, 0.5);
+}
+
 h1 {
   font-weight: bold;
   font-size: 34px;
