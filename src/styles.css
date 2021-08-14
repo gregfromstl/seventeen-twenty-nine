@@ -8,3 +8,41 @@ h1 {
   font-size: 34px;
   font-family: "Karla";
 }
+
+h2 {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: "Karla";
+}
+
+.button-text {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.nav-button {
+  @apply button-text text-left cursor-pointer;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0px;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: white;
+}
+
+.selected-button {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.icon {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.mb-10px {
+  padding-bottom: 10px;
+}
