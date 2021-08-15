@@ -1,12 +1,8 @@
 <div class="m-4 flex flex-wrap justify-center">
   <app-card
-    img="https://content.1729.com/content/images/2021/07/inflation-1.webp"
-    title="A $100K Prize for a Decentralized Inflation Dashboard"
+    *ngFor="let task of tasks"
+    [img]="task.img"
+    [title]="task.title"
     [tags]="['Crypto', 'Programming']"
   ></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
-  <app-card></app-card>
 </div>
