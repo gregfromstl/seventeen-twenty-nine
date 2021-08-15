@@ -6,7 +6,6 @@ import { TaskComponent } from './components/task/task.component';
 
 const routes: Routes = [
   { path: '', component: CardListComponent, pathMatch: 'full' },
-  { path: 'task', component: TaskComponent },
   { path: 'task/:task', component: TaskComponent },
   { path: '**', redirectTo: '' },
 ];
