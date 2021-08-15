@@ -11,6 +11,7 @@ import { CardListComponent } from './components/card-list/card-list.component';
 import { CardComponent } from './components/card/card.component';
 
 import { environment } from 'src/environments/environment';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { environment } from 'src/environments/environment';
     NavbarComponent,
     CardListComponent,
     CardComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
