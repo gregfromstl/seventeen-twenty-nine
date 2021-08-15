@@ -10,8 +10,8 @@ export const environment = {
     projectId: 'frontend-44b6a',
     storageBucket: 'frontend-44b6a.appspot.com',
     messagingSenderId: '917944600432',
-    appId: '1:917944600432:web:356044ad5827699acf31b5',
-    measurementId: 'G-LGBEF552DD',
+    appId: '1:917944600432:web:46f00df2aacf0f94cf31b5',
+    measurementId: 'G-40QMMRF0GL',
   },
 };
 
