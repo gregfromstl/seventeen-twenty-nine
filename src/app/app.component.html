@@ -1,7 +1,10 @@
 <div class="flex">
   <app-navbar></app-navbar>
   <div class="w-full h-screen overflow-y-scroll">
-    <app-card-list *ngIf="!task"></app-card-list>
+    <app-card-list
+      *ngIf="!task"
+      (selectTask)="selectTask($event)"
+    ></app-card-list>
     <app-task *ngIf="task" [task]="task"></app-task>
   </div>
 </div>
