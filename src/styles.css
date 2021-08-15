@@ -8,12 +8,14 @@ body {
 }
 
 h1 {
+  @apply leading-7;
   font-weight: bold;
   font-size: 34px;
   font-family: "Karla";
 }
 
 h2 {
+  @apply leading-7;
   font-weight: bold;
   font-size: 24px;
   font-family: "Karla";
@@ -23,6 +25,11 @@ h2 {
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
+}
+
+.small-text {
+  font-size: 11px;
+  line-height: 16px;
 }
 
 .nav-button {
