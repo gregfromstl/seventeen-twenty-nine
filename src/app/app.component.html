@@ -1,6 +1,7 @@
 <div class="flex">
   <app-navbar></app-navbar>
   <div class="w-full h-screen overflow-y-scroll">
-    <router-outlet></router-outlet>
+    <app-card-list *ngIf="!task"></app-card-list>
+    <app-task *ngIf="task" [task]="task"></app-task>
   </div>
 </div>

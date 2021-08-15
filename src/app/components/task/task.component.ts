@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Task_ } from 'src/app/models/task';
 
 @Component({
   selector: 'app-task',
@@ -7,11 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./task.component.css'],
 })
 export class TaskComponent implements OnInit {
-  task: string;
+  @Input() task: Task_ | null;
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe((params) => (this.task = params['task']));
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }
