@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Task_ } from 'src/app/models/task';
 
 @Component({
@@ -8,8 +9,14 @@ import { Task_ } from 'src/app/models/task';
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task_;
+  @Output() goBackEvent: EventEmitter<null> = new EventEmitter();
+  backIcon = faChevronLeft;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  goBack(): void {
+    this.goBackEvent.emit();
+  }
 }

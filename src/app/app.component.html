@@ -5,6 +5,6 @@
       *ngIf="!task"
       (selectTask)="selectTask($event)"
     ></app-card-list>
-    <app-task *ngIf="task" [task]="task"></app-task>
+    <app-task *ngIf="task" [task]="task" (goBackEvent)="resetTask()"></app-task>
   </div>
 </div>

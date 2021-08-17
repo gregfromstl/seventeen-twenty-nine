@@ -20,4 +20,8 @@ export class AppComponent {
   selectTask(task: Task_) {
     this.task = task;
   }
+
+  resetTask() {
+    this.task = null;
+  }
 }

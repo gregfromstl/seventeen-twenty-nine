@@ -8,7 +8,6 @@ body {
 }
 
 h1 {
-  @apply leading-7;
   font-weight: bold;
   font-size: 34px;
   font-family: "Karla";
@@ -25,6 +24,10 @@ h2 {
   font-weight: bold;
   font-size: 16px;
   line-height: 18px;
+}
+
+p {
+  font-size: 16px;
 }
 
 .small-text {
