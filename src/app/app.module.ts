@@ -12,6 +12,8 @@ import { CardComponent } from './components/card/card.component';
 
 import { environment } from 'src/environments/environment';
 import { TaskComponent } from './components/task/task.component';
+import { SubmissionComponent } from './components/submission/submission.component';
+import { AddSubmissionComponent } from './components/add-submission/add-submission.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { TaskComponent } from './components/task/task.component';
     CardListComponent,
     CardComponent,
     TaskComponent,
+    SubmissionComponent,
+    AddSubmissionComponent,
   ],
   imports: [
     BrowserModule,

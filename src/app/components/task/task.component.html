@@ -1,11 +1,51 @@
-<div class="p-8 bg-white">
-  <fa-icon
-    class="icon cursor-pointer absolute"
-    [icon]="backIcon"
-    (click)="goBack()"
-  ></fa-icon>
-  <div class="flex flex-col m-16 my-8">
-    <h1 class="my-8">{{ task.title }}</h1>
-    <p>{{ task.text }}</p>
+<div class="p-8 h-screen">
+  <div
+    class="
+      p-8
+      flex
+      space-between
+      absolute
+      right-0
+      left-56
+      top-0
+      justify-between
+      items-center
+    "
+  >
+    <div
+      class="
+        cursor-pointer
+        p-3
+        px-4
+        shadow-md
+        rounded-full
+        bg-white
+        text-blue
+        hover:bg-blue hover:text-white
+        duration-200
+      "
+      (click)="goBack()"
+    >
+      <fa-icon class="icon" [icon]="backIcon"></fa-icon>
+      Back
+    </div>
+    <app-add-submission></app-add-submission>
+  </div>
+
+  <div
+    *ngIf="task.submissions && task.submissions.length > 0"
+    class="flex flex-col py-24"
+  >
+    <app-submission
+      *ngFor="let submission of task.submissions"
+      [submission]="submission"
+    >
+    </app-submission>
+  </div>
+  <div
+    *ngIf="!task.submissions || task.submissions.length === 0"
+    class="w-full h-full flex items-center justify-center"
+  >
+    <h1 class="text-coral-black">No submissions yet.</h1>
   </div>
 </div>
