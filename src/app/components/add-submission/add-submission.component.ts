@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Component, Input, OnInit } from '@angular/core';
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-add-submission',
@@ -7,7 +7,9 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./add-submission.component.css'],
 })
 export class AddSubmissionComponent implements OnInit {
+  @Input() submissionFormOpen = false;
   plusIcon = faPlus;
+  cancelIcon = faTimes;
 
   constructor() {}
 

@@ -10,6 +10,7 @@ import { Task_ } from 'src/app/models/task';
 export class TaskComponent implements OnInit {
   @Input() task: Task_;
   @Output() goBackEvent: EventEmitter<null> = new EventEmitter();
+  addingSubmission = false;
   backIcon = faChevronLeft;
 
   constructor() {}
@@ -18,5 +19,9 @@ export class TaskComponent implements OnInit {
 
   goBack(): void {
     this.goBackEvent.emit();
+  }
+
+  toggleNewSubmissionForm(): void {
+    this.addingSubmission = !this.addingSubmission;
   }
 }

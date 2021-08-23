@@ -19,7 +19,10 @@ module.exports = {
           DEFAULT: "#279Af1",
         },
         "coral-black": "#60656f",
-        "orange-soda": "#f06449",
+        "orange-soda": {
+          DEFAULT: "#f06449",
+          dark: "#de5c43",
+        },
       },
       fontFamily: {
         karla: ["Karla"],

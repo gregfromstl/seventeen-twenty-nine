@@ -14,11 +14,7 @@
   >
     <div
       class="
-        cursor-pointer
-        p-3
-        px-4
-        shadow-md
-        rounded-full
+        button
         bg-white
         text-blue
         hover:bg-blue hover:text-white
@@ -27,15 +23,20 @@
       (click)="goBack()"
     >
       <fa-icon class="icon" [icon]="backIcon"></fa-icon>
-      Back
     </div>
-    <app-add-submission></app-add-submission>
+    <app-add-submission
+      [submissionFormOpen]="addingSubmission"
+      (click)="toggleNewSubmissionForm()"
+    ></app-add-submission>
   </div>
 
   <div
     *ngIf="task.submissions && task.submissions.length > 0"
     class="flex flex-col py-24"
   >
+    <app-new-submission-form
+      [isOpen]="addingSubmission"
+    ></app-new-submission-form>
     <app-submission
       *ngFor="let submission of task.submissions"
       [submission]="submission"

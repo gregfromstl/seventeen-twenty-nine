@@ -48,12 +48,24 @@ p {
   color: white;
 }
 
+.button {
+  @apply cursor-pointer w-12 h-12 flex items-center justify-center shadow-md rounded-full button-text;
+}
+
+.nav-button .icon {
+  margin-right: 8px;
+}
+
 .selected-button {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-.icon {
-  margin-right: 8px;
+.submission-card {
+  @apply w-full shadow-md rounded-2xl p-8 my-3 bg-white;
+}
+
+.new-submission-input {
+  @apply w-full my-2;
 }
 
 .mb-10px {

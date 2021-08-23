@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule } from '@angular/fire';
@@ -14,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { TaskComponent } from './components/task/task.component';
 import { SubmissionComponent } from './components/submission/submission.component';
 import { AddSubmissionComponent } from './components/add-submission/add-submission.component';
+import { NewSubmissionFormComponent } from './components/new-submission-form/new-submission-form.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import { AddSubmissionComponent } from './components/add-submission/add-submissi
     TaskComponent,
     SubmissionComponent,
     AddSubmissionComponent,
+    NewSubmissionFormComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
