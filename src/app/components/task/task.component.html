@@ -24,6 +24,9 @@
     >
       <fa-icon class="icon" [icon]="backIcon"></fa-icon>
     </div>
+    <a [href]="task.url" target="_blank">
+      <h1>{{ task.title }}</h1>
+    </a>
     <app-add-submission
       [submissionFormOpen]="addingSubmission"
       (click)="toggleNewSubmissionForm()"
