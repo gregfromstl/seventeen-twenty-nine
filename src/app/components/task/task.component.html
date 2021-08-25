@@ -33,22 +33,23 @@
     ></app-add-submission>
   </div>
 
-  <div
-    *ngIf="task.submissions && task.submissions.length > 0"
-    class="flex flex-col py-24"
-  >
+  <div class="flex flex-col py-24">
     <app-new-submission-form
       [isOpen]="addingSubmission"
     ></app-new-submission-form>
-    <app-submission
-      *ngFor="let submission of task.submissions"
-      [submission]="submission"
-    >
-    </app-submission>
+    <div *ngIf="task.submissions && task.submissions.length > 0">
+      <app-submission
+        *ngFor="let submission of task.submissions"
+        [submission]="submission"
+      >
+      </app-submission>
+    </div>
   </div>
   <div
-    *ngIf="!task.submissions || task.submissions.length === 0"
-    class="w-full h-full flex items-center justify-center"
+    *ngIf="
+      (!task.submissions || task.submissions.length === 0) && !addingSubmission
+    "
+    class="w-full my-24 flex items-center justify-center"
   >
     <h1 class="text-coral-black">No submissions yet.</h1>
   </div>
