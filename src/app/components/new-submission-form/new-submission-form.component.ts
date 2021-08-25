@@ -7,6 +7,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-new-submission-form',
@@ -17,21 +18,22 @@ import { Component, Input, OnInit } from '@angular/core';
         'open',
         style({
           transform: 'translateX(0%)',
+          display: 'block',
         })
       ),
       state(
         'closed',
         style({
           transform: 'translateX(150%)',
+          display: 'none',
         })
       ),
       transition('open => closed', [
         animate(
           '0.2s',
           keyframes([
-            style({ transform: 'translateX(0%)' }),
-            style({ transform: 'translateX(100%)' }),
-            style({ transform: 'translateX(100%)' }),
+            style({ transform: 'translateX(0%)', display: 'block' }),
+            style({ transform: 'translateX(150%)', display: 'block' }),
           ])
         ),
       ]),
@@ -39,9 +41,8 @@ import { Component, Input, OnInit } from '@angular/core';
         animate(
           '0.2s',
           keyframes([
-            style({ transform: 'translateX(100%)' }),
-            style({ transform: 'translateX(100%)' }),
-            style({ transform: 'translateX(0%)' }),
+            style({ transform: 'translateX(150%)', display: 'block' }),
+            style({ transform: 'translateX(0%)', display: 'block' }),
           ])
         ),
       ]),
@@ -51,6 +52,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class NewSubmissionFormComponent implements OnInit {
   @Input() isOpen = false;
+  checkIcon = faCheck;
 
   constructor() {}
 

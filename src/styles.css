@@ -49,7 +49,7 @@ p {
 }
 
 .button {
-  @apply cursor-pointer w-12 h-12 flex items-center justify-center shadow-md rounded-full button-text;
+  @apply cursor-pointer w-12 h-12 flex items-center justify-center shadow-md rounded-full button-text duration-200 ease-in-out;
 }
 
 .nav-button .icon {
