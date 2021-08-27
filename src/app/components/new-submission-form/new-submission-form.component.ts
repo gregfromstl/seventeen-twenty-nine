@@ -6,8 +6,10 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { Submission } from 'src/app/models/submission';
+import { TaskService } from 'src/app/services/task.service';
 
 @Component({
   selector: 'app-new-submission-form',
@@ -50,11 +52,48 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
   ],
   styleUrls: ['./new-submission-form.component.css'],
 })
-export class NewSubmissionFormComponent implements OnInit {
+export class NewSubmissionFormComponent {
   @Input() isOpen = false;
+  @Output() submissionEvent = new EventEmitter<Submission>();
   checkIcon = faCheck;
+
+  title: string;
+  description: string;
+  url: string;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  updateTitle(event: Event) {
+    const target = event.target as HTMLTextAreaElement;
+    this.title = target?.value;
+  }
+
+  updateDescription(event: Event) {
+    const target = event.target as HTMLTextAreaElement;
+    this.description = target?.value;
+  }
+
+  updateUrl(event: Event) {
+    const target = event.target as HTMLTextAreaElement;
+    this.url = target?.value;
+  }
+
+  resetForm() {
+    this.title = '';
+    this.description = '';
+    this.url = '';
+  }
+
+  async submitForm() {
+    const submission: Submission = {
+      title: this.title,
+      description: this.description,
+      url: this.url,
+      comments: [],
+      user: '',
+      votes: 0,
+    };
+    this.submissionEvent.emit(submission);
+    this.resetForm();
+  }
 }

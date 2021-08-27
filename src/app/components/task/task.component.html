@@ -35,6 +35,7 @@
 
   <div class="flex flex-col py-24">
     <app-new-submission-form
+      (submissionEvent)="addSubmission($event)"
       [isOpen]="addingSubmission"
     ></app-new-submission-form>
     <div *ngIf="task.submissions && task.submissions.length > 0">

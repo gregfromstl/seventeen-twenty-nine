@@ -4,20 +4,26 @@
     type="text"
     placeholder="Project title"
     value=""
+    (change)="updateTitle($event)"
   />
   <input
     class="new-submission-input"
     type="text"
     placeholder="Project description"
     value=""
+    (change)="updateDescription($event)"
   />
   <input
     class="new-submission-input"
     type="text"
     placeholder="Link to project"
     value=""
+    (change)="updateUrl($event)"
   />
-  <button class="button bg-green text-white m-auto mt-4 hover:bg-green-dark">
+  <button
+    class="button bg-green text-white m-auto mt-4 hover:bg-green-dark"
+    (click)="submitForm()"
+  >
     <fa-icon class="icon" [icon]="checkIcon"></fa-icon>
   </button>
 </div>
