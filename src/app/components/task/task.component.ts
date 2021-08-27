@@ -27,7 +27,7 @@ export class TaskComponent implements OnInit {
     const result = await this.taskService.addSubmission(
       submission,
       this.task.submissions ?? [],
-      this.task.url.split('/').slice(-1)[0]
+      this.task.id
     );
     this.addingSubmission = false;
   }
