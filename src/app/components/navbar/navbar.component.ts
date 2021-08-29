@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.select(Filter.All);
+    this.select(Filter.ALL);
   }
 
   select(selected: Filter): void {

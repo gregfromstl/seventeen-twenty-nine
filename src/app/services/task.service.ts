@@ -28,10 +28,10 @@ export class TaskService {
   handleNewTasks(tasks: Task_[]) {
     this.sendTasks(tasks);
     this.latestTasks = tasks; // track latest tasks for when filters change
-    console.log(tasks);
   }
 
-  refreshTasks() { // when a new component subscribes and needs tasks right away
+  refreshTasks() {
+    // when a new component subscribes and needs tasks right away
     this.sendTasks(this.latestTasks);
   }
 
@@ -41,11 +41,15 @@ export class TaskService {
   }
 
   maybeFilterTasks(tasks: Task_[]): Task_[] {
-    return this.taskFilters.includes(Filter.All) ? tasks : this.filterTasks(tasks, this.taskFilters);
+    return this.taskFilters.includes(Filter.ALL)
+      ? tasks
+      : this.filterTasks(tasks, this.taskFilters);
   }
 
   filterTasks(tasks: Task_[], filters: string[]): Task_[] {
-    return tasks.filter((task) => task.tags?.some((tag: string) => filters.includes(tag)));
+    return tasks.filter((task) =>
+      task.tags?.some((tag: string) => filters.includes(tag.toUpperCase()))
+    );
   }
 
   async addSubmission(
@@ -71,5 +75,4 @@ export class TaskService {
       this.firestore.collection('tasks');
     return taskCollection.valueChanges();
   }
-
 }

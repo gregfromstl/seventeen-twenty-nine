@@ -1,27 +1,35 @@
 <div class="h-screen relative w-56 bg-blue px-4 py-6 text-center text-white">
   <h1 class="mb-10px">1729</h1>
   <div
-    class="nav-button {{ selected === filterType.All ? 'selected-button' : '' }}"
-    (click)="select(filterType.All)"
+    class="nav-button {{
+      selected === filterType.ALL ? 'selected-button' : ''
+    }}"
+    (click)="select(filterType.ALL)"
   >
     <fa-icon class="icon" [icon]="allIcon"></fa-icon>All Tasks
   </div>
   <div
-    class="nav-button {{ selected === filterType.Writing ? 'selected-button' : '' }}"
-    (click)="select(filterType.Writing)"
+    class="nav-button {{
+      selected === filterType.WRITING ? 'selected-button' : ''
+    }}"
+    (click)="select(filterType.WRITING)"
   >
     <fa-icon class="icon" [icon]="writingIcon"></fa-icon>Writing
   </div>
   <div
-    class="nav-button {{ selected === filterType.Programming ? 'selected-button' : '' }}"
+    class="nav-button {{
+      selected === filterType.PROGRAMMING ? 'selected-button' : ''
+    }}"
     class="nav-button"
-    (click)="select(filterType.Programming)"
+    (click)="select(filterType.PROGRAMMING)"
   >
     <fa-icon class="icon" [icon]="programmingIcon"></fa-icon>Programming
   </div>
   <div
-    class="nav-button {{ selected === filterType.Research ? 'selected-button' : '' }}"
-    (click)="select(filterType.Research)"
+    class="nav-button {{
+      selected === filterType.RESEARCH ? 'selected-button' : ''
+    }}"
+    (click)="select(filterType.RESEARCH)"
   >
     <fa-icon class="icon" [icon]="researchIcon"></fa-icon>Research
   </div>
