@@ -3,9 +3,8 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from '@angular/fire/firestore';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Task_ } from '../models/task';
-import { Submission } from '../models/submission';
 import { Filter } from '../types/filter';
 
 @Injectable({
@@ -50,24 +49,6 @@ export class TaskService {
     return tasks.filter((task) =>
       task.tags?.some((tag: string) => filters.includes(tag.toUpperCase()))
     );
-  }
-
-  async addSubmission(
-    submission: Submission,
-    existingSubmissions: Submission[],
-    task_id: string
-  ): Promise<boolean> {
-    const doc = this.firestore.doc<Task_>(`tasks/${task_id}`);
-    return await doc
-      .update({
-        submissions: [...existingSubmissions, submission],
-      })
-      .then(() => {
-        return true;
-      })
-      .catch((err) => {
-        return false;
-      });
   }
 
   getTasks(): Observable<Task_[]> {

@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Submission } from 'src/app/models/submission';
 import { Task_ } from 'src/app/models/task';
-import { TaskService } from 'src/app/services/task.service';
+import { SubmissionService } from 'src/app/services/submission.service';
 
 @Component({
   selector: 'app-task',
@@ -15,7 +15,7 @@ export class TaskComponent implements OnInit {
   addingSubmission = false;
   backIcon = faChevronLeft;
 
-  constructor(private taskService: TaskService) {}
+  constructor(private submissionService: SubmissionService) {}
 
   ngOnInit(): void {}
 
@@ -24,7 +24,7 @@ export class TaskComponent implements OnInit {
   }
 
   async addSubmission(submission: Submission): Promise<void> {
-    const result = await this.taskService.addSubmission(
+    const result = await this.submissionService.addSubmission(
       submission,
       this.task.submissions ?? [],
       this.task.id
