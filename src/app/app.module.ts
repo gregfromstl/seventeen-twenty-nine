@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import firebase from 'firebase';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,6 +17,8 @@ import { TaskComponent } from './components/task/task.component';
 import { SubmissionComponent } from './components/submission/submission.component';
 import { AddSubmissionComponent } from './components/add-submission/add-submission.component';
 import { NewSubmissionFormComponent } from './components/new-submission-form/new-submission-form.component';
+import { SignInComponent } from './components/auth/sign-in/sign-in.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { NewSubmissionFormComponent } from './components/new-submission-form/new
     SubmissionComponent,
     AddSubmissionComponent,
     NewSubmissionFormComponent,
+    SignInComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,11 +12,11 @@ import { Filter } from '../types/filter';
 })
 export class TaskService {
   tasks = new Subject<Task_[]>();
-  latestTasks: Task_[] = [];
-  taskFilters: Filter[] = [];
+  private latestTasks: Task_[] = [];
+  private taskFilters: Filter[] = [];
 
   constructor(private firestore: AngularFirestore) {
-    this.getTasks().subscribe((tasks) => this.handleNewTasks(tasks));
+    this.fetchTasks().subscribe((tasks: Task_[]) => this.handleNewTasks(tasks));
   }
 
   setFilters(filters: Filter[]) {
@@ -24,7 +24,7 @@ export class TaskService {
     this.sendTasks(this.latestTasks); // refresh task list
   }
 
-  handleNewTasks(tasks: Task_[]) {
+  private handleNewTasks(tasks: Task_[]) {
     this.sendTasks(tasks);
     this.latestTasks = tasks; // track latest tasks for when filters change
   }
@@ -34,24 +34,24 @@ export class TaskService {
     this.sendTasks(this.latestTasks);
   }
 
-  sendTasks(tasks: Task_[]) {
+  private sendTasks(tasks: Task_[]) {
     const possiblyFilteredTasks = this.maybeFilterTasks(tasks);
     this.tasks.next(possiblyFilteredTasks);
   }
 
-  maybeFilterTasks(tasks: Task_[]): Task_[] {
+  private maybeFilterTasks(tasks: Task_[]): Task_[] {
     return this.taskFilters.includes(Filter.ALL)
       ? tasks
       : this.filterTasks(tasks, this.taskFilters);
   }
 
-  filterTasks(tasks: Task_[], filters: string[]): Task_[] {
+  private filterTasks(tasks: Task_[], filters: string[]): Task_[] {
     return tasks.filter((task) =>
       task.tags?.some((tag: string) => filters.includes(tag.toUpperCase()))
     );
   }
 
-  getTasks(): Observable<Task_[]> {
+  private fetchTasks(): Observable<Task_[]> {
     var taskCollection: AngularFirestoreCollection<Task_> =
       this.firestore.collection('tasks');
     return taskCollection.valueChanges();

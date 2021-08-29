@@ -9,6 +9,7 @@ import {
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Submission } from 'src/app/models/submission';
+import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -61,22 +62,7 @@ export class NewSubmissionFormComponent {
   description: string;
   url: string;
 
-  constructor() {}
-
-  updateTitle(event: Event) {
-    const target = event.target as HTMLTextAreaElement;
-    this.title = target?.value;
-  }
-
-  updateDescription(event: Event) {
-    const target = event.target as HTMLTextAreaElement;
-    this.description = target?.value;
-  }
-
-  updateUrl(event: Event) {
-    const target = event.target as HTMLTextAreaElement;
-    this.url = target?.value;
-  }
+  constructor(private authService: AuthService) {}
 
   resetForm() {
     this.title = '';
@@ -84,13 +70,13 @@ export class NewSubmissionFormComponent {
     this.url = '';
   }
 
-  async submitForm() {
+  async submitForm(title: string, description: string, url: string) {
     const submission: Submission = {
-      title: this.title,
-      description: this.description,
-      url: this.url,
+      title: title,
+      description: description,
+      url: url,
       comments: [],
-      user: '',
+      user: this.authService.userData?.uid,
       votes: 0,
     };
     this.submissionEvent.emit(submission);

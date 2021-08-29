@@ -1,10 +1,1 @@
-<div class="flex">
-  <app-navbar></app-navbar>
-  <div class="w-full h-screen overflow-y-scroll">
-    <app-card-list
-      *ngIf="!task"
-      (selectTask)="selectTask($event)"
-    ></app-card-list>
-    <app-task *ngIf="task" [task]="task" (goBackEvent)="resetTask()"></app-task>
-  </div>
-</div>
+<router-outlet></router-outlet>
