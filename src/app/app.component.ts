@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Task_ } from './models/task';
 
 @Component({
@@ -12,10 +11,6 @@ export class AppComponent {
   task: Task_ | null;
 
   constructor() {}
-
-  ngOnInit() {
-    this.task = null;
-  }
 
   selectTask(task: Task_) {
     this.task = task;

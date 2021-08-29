@@ -5,6 +5,8 @@ import {
   faMicroscope,
   faChartPie,
 } from '@fortawesome/free-solid-svg-icons';
+import { TaskService } from 'src/app/services/task.service';
+import { Filter } from 'src/app/types/filter';
 
 @Component({
   selector: 'app-navbar',
@@ -16,16 +18,18 @@ export class NavbarComponent implements OnInit {
   programmingIcon = faLaptop;
   researchIcon = faMicroscope;
   allIcon = faChartPie;
+  filterType = Filter;
 
-  selected: string;
+  selected: Filter;
 
-  constructor() {}
+  constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.selected = 'all';
+    this.select(Filter.All);
   }
 
-  onSelect(selected: string): void {
+  select(selected: Filter): void {
     this.selected = selected;
+    this.taskService.setFilters([selected]);
   }
 }

@@ -7,4 +7,5 @@ export interface Task_ {
   text: string;
   url: string;
   submissions?: Submission[];
+  tags?: string[];
 }
