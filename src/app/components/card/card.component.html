@@ -30,7 +30,8 @@
           small-text
         "
       >
-        {{ tag }}
+        <!-- capitalize first letter -->
+        {{ tag.charAt(0).toUpperCase() + tag.slice(1) }}
       </div>
     </div>
   </div>

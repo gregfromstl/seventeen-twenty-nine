@@ -3,7 +3,7 @@
     *ngFor="let task of tasks"
     [img]="task.img"
     [title]="task.title"
-    [tags]="['Crypto', 'Programming']"
+    [tags]="task.tags"
     (click)="clickCard(task)"
   ></app-card>
 </div>
