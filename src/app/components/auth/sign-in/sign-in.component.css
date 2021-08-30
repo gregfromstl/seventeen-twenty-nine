@@ -1,0 +1,14 @@
+h1 {
+  font-size: 144px;
+  cursor: default;
+  line-height: 0.8;
+}
+.landing-page {
+  min-width: 700px;
+}
+.globe {
+  min-width: 200px;
+}
+.arrow {
+  min-width: 400px;
+}

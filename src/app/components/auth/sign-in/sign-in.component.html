@@ -1,27 +1,30 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Sign In</h3>
-      <!-- Calling SignIn Api from AuthService -->
-      <div class="formGroup">
-        <input
-          type="button"
-          class="btn btnPrimary"
-          value="Log in"
-          (click)="authService.loginWithGoogle()"
-        />
-      </div>
+<div class="landing-page w-screen h-screen bg-white overflow-hidden flex">
+  <div class="w-5/12 h-screen bg-blue relative">
+    <img
+      class="absolute bottom-0 left-0 globe"
+      src="../../../../assets/globe.svg"
+      alt="Globe"
+    />
+    <div class="absolute right-0 bottom-0 text-white text-right">
+      <h1>1729</h1>
     </div>
-
-    <div class="redirectToLogin">
-      <span
-        >Don't have an account?<span
-          class="redirect"
-          routerLink="/register-user"
-        >
-          Sign Up</span
-        ></span
-      >
+  </div>
+  <div class="h-screen w-7/12 right-0 bg-white relative">
+    <div class="absolute left-0 bottom-0 text-blue text-right">
+      <h1>ers</h1>
+    </div>
+    <div class="m-auto pt-32 px-32">
+      <img
+        class="arrow"
+        src="../../../../assets/getstarted.svg"
+        alt="Get started"
+      />
+      <img
+        class="m-auto cursor-pointer"
+        src="../../../../assets/google_signin.png"
+        alt="Sign in with google"
+        (click)="authService.loginWithGoogle()"
+      />
     </div>
   </div>
 </div>
