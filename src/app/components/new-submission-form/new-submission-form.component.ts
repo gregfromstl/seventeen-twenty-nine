@@ -64,12 +64,6 @@ export class NewSubmissionFormComponent {
 
   constructor(private authService: AuthService) {}
 
-  resetForm() {
-    this.title = '';
-    this.description = '';
-    this.url = '';
-  }
-
   async submitForm(title: string, description: string, url: string) {
     const submission: Submission = {
       title: title,
@@ -80,6 +74,5 @@ export class NewSubmissionFormComponent {
       votes: 0,
     };
     this.submissionEvent.emit(submission);
-    this.resetForm();
   }
 }

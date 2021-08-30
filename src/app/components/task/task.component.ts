@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { Submission } from 'src/app/models/submission';
 import { Task_ } from 'src/app/models/task';
@@ -10,7 +10,7 @@ import { SubmissionService } from 'src/app/services/submission.service';
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.css'],
 })
-export class TaskComponent implements OnInit {
+export class TaskComponent {
   @Input() task: Task_;
   @Output() goBackEvent: EventEmitter<null> = new EventEmitter();
   addingSubmission = false;
@@ -21,21 +21,17 @@ export class TaskComponent implements OnInit {
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {
-    console.log(this.authService.userData);
-  }
-
   goBack(): void {
     this.goBackEvent.emit();
   }
 
   async addSubmission(submission: Submission): Promise<void> {
-    const result = await this.submissionService.addSubmission(
-      submission,
-      this.task.submissions ?? [],
-      this.task.id
-    );
-    this.addingSubmission = false;
+    this.submissionService
+      .addSubmission(submission, this.task.submissions ?? [], this.task.id)
+      .then((result) => {
+        this.task.submissions = [submission, ...(this.task.submissions ?? [])];
+        this.addingSubmission = false;
+      });
   }
 
   toggleNewSubmissionForm(): void {
